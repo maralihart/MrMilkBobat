@@ -61,7 +61,7 @@ async def on_message(message):
   await autoreact(
     message, 
     dory,
-    [custom_emoji["dory"]])
+    [custom_emoji["dory_swimming"]])
 
   boba_emoji = [
     emoji["boba"], 
