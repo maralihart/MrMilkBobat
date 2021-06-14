@@ -18,7 +18,7 @@ emoji = {
 
 custom_names = [
   "yeet", 
-  "dory", 
+  "dory_swimming", 
   "taro_boba", 
   "party_parrot_boba", 
   "milk_tea", 
