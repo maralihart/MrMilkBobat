@@ -25,7 +25,9 @@ custom_names = [
   "party_parrot_boba", 
   "milk_tea", 
   "kitty_boba", 
-  "party_boba"]
+  "party_boba",
+  "rip",
+  "kirby_dab"]
 custom_emoji = {}
 
 @bot.event
@@ -63,12 +65,7 @@ async def on_message(message):
   vijay = 703703244714672207 in mentioned or "vijay" in text or "vj" in text
   await autoreact(
     message,
-    vijay,
-    [custom_emoji["yeet"]])
-
-  await autoreact(
-    message,
-    re.search("yee+t", text),
+    vijay or re.search("yee+t", text),
     [custom_emoji["yeet"]])
 
   dory = 528447721816981505 in mentioned or "dory" in text
@@ -92,18 +89,36 @@ async def on_message(message):
   await autoreact(
     message,
     welcome,
-    emoji["wave"]
+    [emoji["wave"]]
+  )
+
+  await autoreact(
+    message,
+    "rip" in text,
+    [custom_emoji["rip"]]
+  )
+
+  await autoreact(
+    message,
+    "dab" in text,
+    [custom_emoji["kirby_dab"]]
   )
 
   # autoreplies
   await autoreply(
     message,
-    "mr. milk bobat" in text or 853780610183462933 in mentioned,
+    "mr. milk bobat" in text or "bobat" in text or 853780610183462933 in mentioned,
     random.choice([
       "you rang? ☎️",
       "hi 👋",
       "that's me 🤪",
       "👀 yes?"])
+  )
+
+  await autoreply(
+    message,
+    "can i get an f in chat" in text,
+    "F"
   )
 
 async def autoreact(message, condition, emojis):
