@@ -56,6 +56,9 @@ async def on_message(message):
   mentioned = []
   for mention in message.mentions:
     mentioned.append(mention.id)
+    
+  if 584451089521442846 in mentioned or re.search("ma+ra+", text):
+    await message.reply('mommy '+emoji["milk"], mention_author=False)
 
   # autoreactions
   await autoreact(
