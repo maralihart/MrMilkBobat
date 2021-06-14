@@ -15,7 +15,12 @@ emoji = {
   "shark": "🦈",
   "basketball": "🏀",
   "boba": "🧋",
-  "wave": "👋"
+  "wave": "👋",
+  "s" : "🆂",
+  "h": "🅷",
+  "i": "🅸",
+  "t": "🆃",
+  "z": "🆉"
   }
 
 custom_names = [
@@ -27,7 +32,9 @@ custom_names = [
   "kitty_boba", 
   "party_boba",
   "rip",
-  "kirby_dab"]
+  "kirby_dab",
+  "f_in_chat",
+  "f_keyboard"]
 custom_emoji = {}
 
 @bot.event
@@ -104,6 +111,12 @@ async def on_message(message):
     [custom_emoji["kirby_dab"]]
   )
 
+  await autoreact(
+    message,
+    text == "f",
+    [custom_emoji["f_in_chat"], custom_emoji["f_keyboard"]]
+  )
+
   # autoreplies
   await autoreply(
     message,
@@ -115,9 +128,10 @@ async def on_message(message):
       "👀 yes?"])
   )
 
+  f_in_chat = re.search("(can i get)( an| a)? f( in chat)?", text) or "f in chat" in text or "f pls" in text or "i want f" in text
   await autoreply(
     message,
-    "can i get an f in chat" in text,
+    f_in_chat,
     "F"
   )
 
