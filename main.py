@@ -65,10 +65,8 @@ async def on_message(message):
 
   boba_emoji = [
     emoji["boba"], 
-    custom_emoji["party_parrot_boba"], custom_emoji["kitty_boba"], 
-    custom_emoji["milk_tea"], 
-    custom_emoji["taro_boba"],
-    custom_emoji["party_boba"]]
+    custom_emoji["party_parrot_boba"], 
+    custom_emoji["kitty_boba"]]
   boba = "boba" in text or "bubble tea" in text or "milk tea" in text
   await autoreact(
     message,
