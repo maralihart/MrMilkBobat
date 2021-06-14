@@ -1,6 +1,7 @@
 import discord
 import os
 import random
+import re
 from stay_awake import stay_awake
 
 stay_awake()
@@ -53,24 +54,24 @@ async def on_message(message):
     "milk" in text, 
     [emoji["milk"], emoji["cow"]])
 
-  chakram = message.author.id == 694925078781100153 or "chakram" in text or "blahaj" in text
+  chakram = 694925078781100153 in mentioned or "chakram" in text or "blahaj" in text or "astrid" in text or "warrior princess" in text
   await autoreact(
     message,
     chakram,
     [emoji["shark"]])
   
-  vijay = message.author.id == 703703244714672207 or "vijay" in text or "vj" in text
+  vijay = 703703244714672207 in mentioned or "vijay" in text or "vj" in text
   await autoreact(
     message,
     vijay,
-    [emoji["basketball"], custom_emoji["yeet"]])
+    [custom_emoji["yeet"]])
 
   await autoreact(
     message,
-    "yeet" in text,
+    re.search("yee+t", text),
     [custom_emoji["yeet"]])
 
-  dory = message.author.id == 528447721816981505 or "dory" in text
+  dory = 528447721816981505 in mentioned or "dory" in text
   await autoreact(
     message, 
     dory,
