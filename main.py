@@ -34,7 +34,10 @@ custom_names = [
   "rip",
   "kirby_dab",
   "f_in_chat",
-  "f_keyboard"]
+  "f_keyboard",
+  "party_blahaj",
+  "party_blob",
+  "cat_heartbongo"]
 custom_emoji = {}
 
 @bot.event
@@ -43,6 +46,12 @@ async def on_ready():
   for name in custom_names:
     custom_emoji[name] = discord.utils.get(bot.emojis, name=name)
   print("Updated custom emojis")
+
+@bot.event
+async def on_join_event(member):
+  channel = bot.get_channel("822110282964533259")
+  await channel.send("welcome in! 🥳 <@" + member.id + ">")
+
 
 @bot.event
 async def on_message(message):
@@ -67,7 +76,7 @@ async def on_message(message):
   await autoreact(
     message,
     chakram,
-    [emoji["shark"]])
+    [custom_emoji["party_blahaj"]])
   
   vijay = 703703244714672207 in mentioned or "vijay" in text or "vj" in text
   await autoreact(
@@ -115,6 +124,18 @@ async def on_message(message):
     message,
     text == "f",
     [custom_emoji["f_in_chat"], custom_emoji["f_keyboard"]]
+  )
+
+  await autoreact(
+    message,
+    "🥳" in text or "party" in text or "woo" in text,
+    [custom_emoji["party_blob"]]
+  )
+
+  await autoreact(
+    message,
+    "love" in text or "heart" in text,
+    [custom_emoji["cat_heartbongo"]]
   )
 
   # autoreplies
