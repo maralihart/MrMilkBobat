@@ -90,7 +90,13 @@ async def on_message(message):
     message, 
     dory,
     [custom_emoji["dory_swimming"]])
-
+  
+  zoheb = 716186953510551572 in mentioned or "zoheb" in text
+  await autoreact(
+    message,
+    zoheb,
+    [custom_emoji["drinking milk"]]
+  ) 
   boba_emoji = [
     emoji["boba"], 
     custom_emoji["party_parrot_boba"], 
