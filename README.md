@@ -11,7 +11,7 @@ A discord bot for autoreactions and other for the Milk + Friends Discord Server
 8. Take the token you copied earlier and click the lock icon in the Replit sidebar. This should open the Secrets tab.
 9. Make the key `TOKEN` and paste your token in value and then press `Add new secret`.
 10. Run the bot, it should now be online!
-10. Take whatever code you changed and submit a pull request!
+10. Take whatever code you changed and submit a pull request! When you forked it on Replit, it should create a fork in GitHub, so by using the version control tab in the left, you can contribute.
 
 ## Acknowledgments
 Inspiration from [Tiffany's Pride Bot](https://github.com/tyffical/Pridebot)
