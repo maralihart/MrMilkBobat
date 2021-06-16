@@ -1,5 +1,7 @@
 # Mr. Milk Bobat
-A discord bot for autoreactions and other for the Milk + Friends Discord Server
+A discord bot for autoreactions and other for the [Milk + Friends Discord Server](https://discord.gg/ebMsPKpkBu)
+
+Should you have any questions, please join the [Discord](https://discord.gg/ebMsPKpkBu) and ask in `#pls-debug`
 
 ## How to Contribute
 1. Go to [Discord Developer](https://discord.com/developers/applications) and create a New Application
