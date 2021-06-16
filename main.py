@@ -8,7 +8,6 @@ stay_awake()
 
 token = os.environ['TOKEN']
 bot = discord.Client()
-res = []
 
 emoji = {
   "milk": "🥛",
@@ -95,12 +94,15 @@ async def on_message(message):
     [f_in_chat, "F"]
   ]
 
+  for autoreply in autoreplies:
+    await automessage(message, autoreply[0], autoreply[1])
+
 async def autoreact(message, condition, emojis):
   if condition:
     for emoji in emojis:
       await message.add_reaction(emoji)
 
-async def autoreply(message, condition, response):
+async def automessage(message, condition, response):
   if condition:
     await message.channel.send(response)
 
