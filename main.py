@@ -46,7 +46,7 @@ custom_names = [
   "cat_heartbongo",
   "drinking_milk"
   ]
-
+custom_emoji = {}
 # Getting sentiments
 def get_sentiment(message):
   sentiments=paralleldots.sentiment(message).get('sentiment')
