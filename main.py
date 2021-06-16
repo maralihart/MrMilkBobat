@@ -37,7 +37,9 @@ custom_names = [
   "f_keyboard",
   "party_blahaj",
   "party_blob",
-  "cat_heartbongo"]
+  "cat_heartbongo",
+  "drinking_milk"
+  ]
 custom_emoji = {}
 
 @bot.event
@@ -64,6 +66,7 @@ async def on_message(message):
   chakram = 694925078781100153 in mentioned or "chakram" in text or "blahaj" in text or "astrid" in text or "warrior princess" in text
   vijay = 703703244714672207 in mentioned or "vijay" in text or "vj" in text
   dory = 528447721816981505 in mentioned or "dory" in text
+  zoheb = 716186953510551572 in mentioned or "zoheb" in text
   boba_emoji = [emoji["boba"], custom_emoji["party_parrot_boba"], custom_emoji["kitty_boba"]]
   boba = "boba" in text or "bubble tea" in text or "milk tea" in text
   def hello(i): return i == 'hi' or i == 'hey' or i == 'hello' or i == 'welcome'
@@ -74,6 +77,7 @@ async def on_message(message):
     [chakram, [custom_emoji["party_blahaj"]]],
     [vijay or re.search("yee+t", text), [custom_emoji["yeet"]]],
     [dory, [custom_emoji["dory_swimming"]]],
+    [zoheb, [custom_emoji["drinking_milk"]]],
     [boba, boba_emoji],
     ["rip" in text, [custom_emoji["rip"]]],
     ["dab" in text, [custom_emoji["kirby_dab"]]],
