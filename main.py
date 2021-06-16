@@ -8,6 +8,7 @@ stay_awake()
 
 token = os.environ['TOKEN']
 bot = discord.Client()
+res = []
 
 emoji = {
   "milk": "🥛",
@@ -101,12 +102,15 @@ async def on_message(message):
     boba_emoji
   )
 
-  welcome = "hi " in text or "hello" in text or "hey" in text or "welcome" in text
-  await autoreact(
-    message,
-    welcome,
-    [emoji["wave"]]
-  )
+  welcome = "hi" in text or "hello" in text or "hey" in text or "welcome" in text
+  res = text.split()
+  for i in res:
+    if i == 'hi' or i == 'hey' or i == 'hello' or i == 'welcome':
+      await autoreact(
+        message,
+        welcome,
+        [emoji["wave"]]
+      )
 
   await autoreact(
     message,
