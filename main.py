@@ -152,7 +152,7 @@ async def on_message(message):
       "👀 yes?"])
   )
 
-  f_in_chat = re.search("(can i get)( an| a)? f( in chat)?", text) or "f in chat" in text or "f pls" in text or "i want f" in text
+  f_in_chat = re.search("(can)( i| we)( get)( an| a)? f( in chat)?", text) or "f in chat" in text or "f pls" in text or "i want f" in text
   await autoreply(
     message,
     f_in_chat,
