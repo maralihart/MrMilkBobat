@@ -92,7 +92,7 @@ async def on_message(message):
 
   # autoreplies
   random_bot_reply = random.choice(["you rang? ☎️", "hi 👋", "that's me 🤪", "👀 yes?"])
-  f_in_chat = re.search("(can i get)( an| a)? f( in chat)?", text) or "f in chat" in text or "f pls" in text or "i want f" in text
+  f_in_chat = re.search("(can)( i| we)( get)( an| a)? f( in chat)?", text) or "f in chat" in text or "f pls" in text or "i want f" in text
   autoreplies = [
     ["mr. milk bobat" in text or "bobat" in text or 853780610183462933 in mentioned, random_bot_reply],
     [f_in_chat, "F"]
