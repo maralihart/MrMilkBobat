@@ -53,7 +53,7 @@ async def on_ready():
 async def on_message(message):
 
   # make sure bot doesn't respond to itself
-  if message.author == bot.user or message.author.id == 853780610183462933:
+  if message.author == bot.user:
     return
 
   # prepare the message and its data
