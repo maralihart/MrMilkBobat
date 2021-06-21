@@ -3,11 +3,16 @@ import os
 import random
 import re
 from stay_awake import stay_awake
+import paralleldots
 
 stay_awake()
 
 token = os.environ['TOKEN']
 bot = discord.Client()
+
+API_KEY=os.environ['API_KEY']
+paralleldots.set_api_key(API_KEY)
+
 
 emoji = {
   "milk": "🥛",
@@ -23,7 +28,9 @@ emoji = {
   "z": "🆉"
   }
 
+
 custom_names = [
+
   "yeet", 
   "dory_swimming", 
   "taro_boba", 
@@ -40,7 +47,33 @@ custom_names = [
   "cat_heartbongo",
   "drinking_milk"
   ]
+
+
 custom_emoji = {}
+
+
+# Any of these emojis will be randomly selected to add_reaction for positive sentiments
+positive={
+  "a":"🥲",
+  "b":"☺️",
+  "c":"🅿"
+  # Add more emojis
+  }
+
+# Any of these emojis will be randomly selected to add_reaction for neutral sentiments
+neutral={
+  "a":"🙃",
+  "b":"👤"
+  # Add more emojis
+  }
+
+
+# Getting sentiments
+def get_sentiment(message):
+  sentiments=paralleldots.sentiment(message.content).get('sentiment')
+  Max_Probability=max(sentiments, key= sentiments.get)
+  return [Max_Probability,sentiments[Max_Probability]]
+  
 
 @bot.event
 async def on_ready():
@@ -51,11 +84,18 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-
   # make sure bot doesn't respond to itself
   if message.author == bot.user:
     return
-
+  
+  # React with relevant emoji or send "F" in message by sentiment analysis
+  sentiment=get_sentiment(message)
+  print(sentiment)
+  if sentiment[1]>0.50 and message.author != bot.user:
+    my_emoji=neutral if sentiment[0]=="neutral" or sentiment[0]== "negative" else positive
+    await autoreact(message,sentiment[0]=="neutral" or sentiment[0]=="positive",random.choice(list(my_emoji.values())))
+    await automessage(message, sentiment[0]=="negative", "F")
+    
   # prepare the message and its data
   text = message.content.lower().strip()
   mentioned = []
