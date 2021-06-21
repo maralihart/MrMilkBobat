@@ -10,7 +10,7 @@ stay_awake()
 token = os.environ['TOKEN']
 bot = discord.Client()
 
-API_KEY="N5U7mnmq9gGLwxVjhPjOncSEJScUSG2eIh6l63XCRWc"
+API_KEY=os.environ['API_KEY']
 paralleldots.set_api_key(API_KEY)
 
 
